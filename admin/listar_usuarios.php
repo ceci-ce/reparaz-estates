@@ -1,4 +1,19 @@
 <?php
+
+session_start();
+
+if(!isset($_SESSION["user_id"]) || 
+   $_SESSION["tipo_usuario"] != "admin"){
+
+    die("
+        Acceso no autorizado.
+        <br><br>
+        <a href='../auth/login.php'>
+            Login
+        </a>
+    ");
+}
+
 include("../config/conexion.php");
 
 
