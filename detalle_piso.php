@@ -90,6 +90,12 @@ if (!$fila) {
         <?php echo $fila["precio"]; ?> €
     </p>
 
+    <br><br>
+
+    <a href="comprar.php?id=<?php echo $fila["piso_id"]; ?>">
+         Comprar piso
+    </a>
+
 
     <p>
         <strong>CP:</strong>
