@@ -224,33 +224,20 @@ if (isset($_POST["actualizar"])) {
 
             <select name="tipo_usuario">
 
-
-                <option value="cliente"
-
-                    <?php
-                    if($tipo_usuario == "cliente"){
-                        echo "selected";
-                    }
-                    ?>>
-
-                    Cliente
-
+                <option value="comprador"
+                    <?php if($tipo_usuario == "comprador") echo "selected"; ?>>
+                    Comprador
                 </option>
 
-
+                <option value="vendedor"
+                    <?php if($tipo_usuario == "vendedor") echo "selected"; ?>>
+                    Vendedor
+                </option>
 
                 <option value="admin"
-
-                    <?php
-                    if($tipo_usuario == "admin"){
-                        echo "selected";
-                    }
-                    ?>>
-
+                    <?php if($tipo_usuario == "admin") echo "selected"; ?>>
                     Admin
-
                 </option>
-
 
             </select>
 

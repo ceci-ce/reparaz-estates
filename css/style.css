@@ -308,3 +308,44 @@ body{
     display:inline-block;
     margin:10px 0;
 }
+
+/* ACCIONES CRUD */
+.acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* BOTÓN EDITAR */
+.btn-edit {
+    display: inline-block;
+    background: #92a3c2;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.btn-edit:hover {
+    background: #1f4fb8;
+}
+
+/* BOTÓN BORRAR */
+.btn-delete {
+    display: inline-block;
+    background: #d9534f;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.btn-delete:hover {
+    background: #b52b27;
+}

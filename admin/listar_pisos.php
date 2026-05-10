@@ -40,6 +40,12 @@ $nfilas = mysqli_num_rows($consulta);
     <h1 class="admin-form-title">
         Listado de pisos
     </h1>
+    <!-- ALTA -->
+    <a class="admin-btn" href="crear_piso.php">
+        Crear piso
+    </a>
+
+    <br><br>
 
     <?php if ($nfilas == 0): ?>
 
@@ -60,48 +66,47 @@ $nfilas = mysqli_num_rows($consulta);
             <th>Metros</th>
             <th>Precio (€)</th>
             <th>Estado</th>
+            <th>Acciones</th>
+
+        <?php while($fila = mysqli_fetch_assoc($consulta)): ?>
+
+        <tr>
+
+            <td><?= $fila["piso_id"] ?></td>
+            <td><?= $fila["titulo"] ?></td>
+            <td><?= $fila["zona"] ?></td>
+            <td><?= $fila["habitaciones"] ?></td>
+            <td><?= $fila["banos"] ?></td>
+            <td><?= $fila["metros"] ?> m²</td>
+            <td><?= number_format($fila["precio"],2) ?> €</td>
+
+            <?php if($fila["disponible"] == 1): ?>
+                <td class="estado-disponible">Disponible</td>
+            <?php else: ?>
+                <td class="estado-vendido">Vendido</td>
+            <?php endif; ?>
+
+            <!-- ACCIONES CRUD -->
+            <td class="acciones">
+
+                <!-- MODIFICAR -->
+                <a class="btn-edit" href="editar_piso.php?id=<?= $fila["piso_id"] ?>">
+                    Editar
+                </a>
+
+                <br>
+
+                <!-- BORRAR -->
+                <a class="btn-delete" href="borrar_piso.php?id=<?= $fila["piso_id"] ?>"
+                   onclick="return confirm('¿Seguro que quieres eliminar este piso?')">
+                    Borrar
+                </a>
+
+            </td>
 
         </tr>
 
-
-        <?php
-
-        for ($i = 0; $i < $nfilas; $i++) {
-
-            $fila = mysqli_fetch_assoc($consulta);
-
-            echo "<tr>";
-
-            echo "<td>" . $fila["piso_id"] . "</td>";
-
-            echo "<td>" . $fila["titulo"] . "</td>";
-
-            echo "<td>" . $fila["zona"] . "</td>";
-
-            echo "<td>" . $fila["habitaciones"] . "</td>";
-
-            echo "<td>" . $fila["banos"] . "</td>";
-
-            echo "<td>" . $fila["metros"] . " m²</td>";
-
-            echo "<td>" .
-                number_format($fila["precio"], 2)
-                . " €</td>";
-
-
-            if($fila["disponible"] == 1){
-
-                echo "<td class='estado-disponible'>Disponible</td>";
-
-            }else{
-
-                echo "<td class='estado-vendido'>Vendido</td>";
-            }
-
-            echo "</tr>";
-        }
-
-        ?>
+        <?php endwhile; ?>
 
     </table>
 
@@ -109,7 +114,9 @@ $nfilas = mysqli_num_rows($consulta);
 
     <br>
 
-    <a class="admin-back" href="crear_piso.php">Crear piso</a>
+    <a class="admin-back" href="listar_usuarios.php">
+        Gestionar usuarios
+    </a>
 
 </div>
 </body>

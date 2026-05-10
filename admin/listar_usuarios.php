@@ -45,31 +45,23 @@ $nfilas = mysqli_num_rows($consulta);
         <p>No hay usuarios en la base de datos.</p>
 
         <p>
-            <a href="crear_usuario.php">
+            <a class="admin-back" href="crear_usuario.php">
                 Añadir el primer usuario
             </a>
         </p>
 
     <?php else: ?>
 
-
         <table class="table">
 
-
             <tr>
-
                 <th>ID</th>
-
                 <th>Nombre</th>
-
                 <th>Email</th>
-
                 <th>Tipo</th>
-
                 <th>Fecha</th>
-
+                <th>Acciones</th>
             </tr>
-
 
             <?php
 
@@ -77,18 +69,28 @@ $nfilas = mysqli_num_rows($consulta);
 
                 $fila = mysqli_fetch_assoc($consulta);
 
-
                 echo "<tr>";
 
                 echo "<td>".$fila["usuario_id"]."</td>";
-
                 echo "<td>".$fila["nombre"]."</td>";
-
                 echo "<td>".$fila["email"]."</td>";
-
                 echo "<td>".$fila["tipo_usuario"]."</td>";
-
                 echo "<td>".$fila["fecha_registro"]."</td>";
+
+                // ACCIONES
+                echo "<td class='acciones'>";
+
+                echo "<a class='btn-edit' href='editar_usuario.php?id=".$fila["usuario_id"]."'>
+                        Editar
+                      </a>";
+
+                echo "<a class='btn-delete' 
+                        href='borrar_usuario.php?id=".$fila["usuario_id"]."' 
+                        onclick=\"return confirm('¿Seguro que quieres eliminar este usuario?')\">
+                        Borrar
+                      </a>";
+
+                echo "</td>";
 
                 echo "</tr>";
             }
@@ -97,19 +99,16 @@ $nfilas = mysqli_num_rows($consulta);
 
         </table>
 
-
     <?php endif; ?>
-
 
     <br>
 
-
-    <a class="admin-back" href="crear_usuario.php">
-
+    <a class="admin-btn" href="crear_usuario.php">
         Crear usuario
-
     </a>
+
 </div>
+
 </body>
 </html>
 

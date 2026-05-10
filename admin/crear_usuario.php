@@ -114,8 +114,9 @@ if(isset($_POST["enviar"])){
 
         <label>Tipo usuario:</label>
         <select name="tipo_usuario">
-            <option value="cliente">Cliente</option>
+            <option value="comprador">Comprador</option>
             <option value="admin">Administrador</option>
+            <option value="vendedor">Vendedor</option>
         </select>
 
         <input
@@ -130,7 +131,7 @@ if(isset($_POST["enviar"])){
 
 
 
-    <a class="admin-back" href="../auth/panel.php">
+    <a class="admin-back" href="panel.php">
         ← Volver al menú
     </a>
 
