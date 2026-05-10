@@ -92,6 +92,7 @@ $nfilas = mysqli_num_rows($consulta);
 
         <div class="card">
 
+            <img src="img/<?php echo $fila["imagen"]; ?>" class="img-card">
 
             <div class="card-body">
 

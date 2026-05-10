@@ -349,3 +349,17 @@ body{
 .btn-delete:hover {
     background: #b52b27;
 }
+
+.img-card {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.img-detalle {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    margin: 20px 0;
+}

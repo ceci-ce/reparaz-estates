@@ -63,7 +63,8 @@ $consulta = mysqli_query($conexion, $sql);
 
 
         <div class="card">
-
+            
+            <img src="img/<?php echo $fila["imagen"]; ?>" class="img-card">
 
             <div class="card-body">
 

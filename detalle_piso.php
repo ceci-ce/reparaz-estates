@@ -101,7 +101,8 @@ if (!$fila) {
 
         </h1>
 
-
+        <img src="img/<?php echo $fila["imagen"]; ?>" class="img-detalle">
+        
         <div class="precio">
 
             <?php echo $fila["precio"]; ?> €

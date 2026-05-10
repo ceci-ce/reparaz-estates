@@ -59,6 +59,7 @@ $nfilas = mysqli_num_rows($consulta);
         <tr>
 
             <th>ID</th>
+            <th>Imagen</th>
             <th>Título</th>
             <th>Zona</th>
             <th>Hab.</th>
@@ -73,6 +74,9 @@ $nfilas = mysqli_num_rows($consulta);
         <tr>
 
             <td><?= $fila["piso_id"] ?></td>
+            <td>
+                <img src="../img/<?php echo $fila["imagen"]; ?>" width="80">
+            </td>
             <td><?= $fila["titulo"] ?></td>
             <td><?= $fila["zona"] ?></td>
             <td><?= $fila["habitaciones"] ?></td>

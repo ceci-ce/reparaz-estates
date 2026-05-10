@@ -32,7 +32,12 @@ if (isset($_POST["enviar"])) {
     $habitaciones = trim($_POST["habitaciones"]);
     $banos = trim($_POST["banos"]);
     $precio = trim($_POST["precio"]);
-    $imagen = trim($_POST["imagen"]);
+    $imagen = $_FILES["imagen"]["name"];
+    $temporal = $_FILES["imagen"]["tmp_name"];
+
+    $ruta = "../img/" . $imagen;
+
+    move_uploaded_file($temporal, $ruta);
 
     if ($titulo != "" && $calle != "" && $numero != "" && $metros != "" && $precio != "") {
 
@@ -100,7 +105,7 @@ if (isset($_POST["enviar"])) {
     <a href="listar_pisos.php">Ver lista</a>
 <?php else: ?>
 
-<form method="POST" class="admin-form">
+<form method="POST" enctype="multipart/form-data" class="admin-form">
 
     <label>Título:</label>
     <input type="text" name="titulo">
@@ -139,7 +144,7 @@ if (isset($_POST["enviar"])) {
     <input type="text" name="precio">
 
     <label>Imagen:</label>
-    <input type="text" name="imagen">
+    <input type="file" name="imagen" accept="image/*">
 
     <input
         class="admin-btn"
