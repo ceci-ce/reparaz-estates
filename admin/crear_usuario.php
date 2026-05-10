@@ -130,7 +130,7 @@ if(isset($_POST["enviar"])){
 
 
 
-    <a class="admin-back" href="menu.html">
+    <a class="admin-back" href="../auth/panel.php">
         ← Volver al menú
     </a>
 

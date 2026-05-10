@@ -150,6 +150,10 @@ if (isset($_POST["enviar"])) {
 
 <?php endif; ?>
 
+    <a class="admin-back" href="../auth/panel.php">
+        ← Volver al menú
+    </a>
+
 </div>
 </body>
 </html>
