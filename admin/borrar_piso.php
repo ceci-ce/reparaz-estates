@@ -105,24 +105,50 @@ if (isset($_POST["confirmar"])) {
 
     $id = trim(strip_tags($_POST["id"]));
 
-    $sql = "DELETE FROM pisos WHERE piso_id = $id";
 
-    $resultado = mysqli_query($conexion, $sql);
+    // Comprobar si tiene compras asociadas
+    $sql_compras =
+        "SELECT * FROM compras WHERE piso_id = $id";
+
+    $consulta_compras =
+        mysqli_query($conexion, $sql_compras);
 
 
-    if ($resultado) {
+    if (mysqli_num_rows($consulta_compras) > 0) {
 
         $mensaje =
-            "<p style='color:green;'>✅ Piso eliminado correctamente.</p>";
-
-        $mostrar_busqueda = false;
+            "<p style='color:red;'>
+                No se puede eliminar este piso porque tiene compras registradas.
+            </p>";
 
     } else {
 
-        $mensaje =
-            "<p style='color:red;'>Error: "
-            . mysqli_error($conexion)
-            . "</p>";
+        // DELETE
+        $sql =
+            "DELETE FROM pisos WHERE piso_id = $id";
+
+        $resultado =
+            mysqli_query($conexion, $sql);
+
+
+        if ($resultado) {
+
+            $mensaje =
+                "<p style='color:green;'>
+                    Piso eliminado correctamente.
+                </p>";
+
+            $mostrar_busqueda = false;
+
+        } else {
+
+            $mensaje =
+                "<p style='color:red;'>
+                    Error: "
+                    . mysqli_error($conexion)
+                    . "
+                </p>";
+        }
     }
 }
 ?>
