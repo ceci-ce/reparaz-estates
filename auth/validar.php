@@ -1,11 +1,19 @@
 <?php
 
 session_start();
-
 include("../config/conexion.php");
 
-$email = trim(strip_tags($_POST["email"]));
+if(!isset($_POST["email"]) || !isset($_POST["password"])){
 
+    die("
+        <div class='admin-form-container'>
+            <p class='admin-error'>Acceso incorrecto al sistema.</p>
+            <a class='admin-back' href='login.php'>Volver</a>
+        </div>
+    ");
+}
+
+$email = trim(strip_tags($_POST["email"]));
 $password = trim(strip_tags($_POST["password"]));
 
 
@@ -50,20 +58,23 @@ if($nfilas == 1){
 
     } else {
 
-        echo "
-        Acceso denegado.
-        Solo administradores.
-        <br><br>
-        <a href='login.php'>Volver</a>";
+    echo "
+    <div class='admin-form-container'>
+        <p class='admin-error'>Acceso denegado. Solo administradores.</p>
+        <br>
+        <a class='admin-back' href='login.php'>Volver</a>
+    </div>";
     }
 
 
 } else {
 
     echo "
-    Usuario o contraseña incorrectos.
-    <br><br>
-    <a href='login.php'>Volver</a>";
+    <div class='admin-form-container'>
+        <p class='admin-error'>Usuario o contraseña incorrectos.</p>
+        <br>
+        <a class='admin-back' href='login.php'>Volver</a>
+    </div>";
 }
 
 

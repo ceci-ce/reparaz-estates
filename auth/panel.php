@@ -2,8 +2,6 @@
 
 session_start();
 
-
-// Protección
 if(!isset($_SESSION["user_id"])){
 
     die("
@@ -15,64 +13,47 @@ if(!isset($_SESSION["user_id"])){
 
 ?>
 
-
 <html>
 <head>
     <title>Panel admin</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
 
-    <h1>
+<div class="admin-panel">
 
-        Bienvenido
-
-        <?php
-        echo $_SESSION["nombre"];
-        ?>
-
+    <h1 class="admin-title">
+        Bienvenido <?php echo $_SESSION["nombre"]; ?>
     </h1>
 
-
     <p>
-
-        Tipo:
-
-        <?php
-        echo $_SESSION["tipo_usuario"];
-        ?>
-
+        Tipo: <strong><?php echo $_SESSION["tipo_usuario"]; ?></strong>
     </p>
 
-
-    <hr>
-
+    <hr><br>
 
     <h2>Administración</h2>
 
+    <br>
 
-    <a href="../admin/listar_pisos.php">
-
+    <a class="admin-btn" href="../admin/listar_pisos.php">
         Gestionar pisos
-
     </a>
 
     <br><br>
 
-
-    <a href="../admin/listar_usuarios.php">
-
+    <a class="admin-btn" href="../admin/listar_usuarios.php">
         Gestionar usuarios
-
     </a>
 
     <br><br>
 
-
-    <a href="logout.php">
-
+    <a class="admin-back" href="logout.php">
         Cerrar sesión
-
     </a>
+
+</div>
 
 </body>
 </html>

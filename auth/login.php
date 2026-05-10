@@ -1,33 +1,32 @@
 <html>
 <head>
     <title>Login</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
 
-    <h1>Acceso administración</h1>
+<div class="admin-form-container">
 
-    <form method="POST" action="validar.php">
+    <h1 class="admin-form-title">Acceso administración</h1>
 
-        Email:
+    <form method="POST" action="validar.php" class="admin-form">
 
-        <input type="text"
-               name="email">
+        <label>Email:</label>
 
-        <br><br>
-
-
-        Contraseña:
-
-        <input type="password"
-               name="password">
-
-        <br><br>
+        <input type="text" name="email" required>
 
 
-        <input type="submit"
-               value="Entrar">
+        <label>Contraseña:</label>
+
+        <input type="password" name="password" required>
+
+
+        <input class="admin-btn" type="submit" value="Entrar">
 
     </form>
+
+</div>
 
 </body>
 </html>

@@ -285,3 +285,24 @@ td{
 tr:hover{
     background:#f8f8f8;
 }
+
+body{
+    background:#f8f8f8;
+}
+
+/* PANEL CENTRADO */
+.admin-panel{
+    max-width:800px;
+    margin:80px auto;
+    background:white;
+    padding:50px;
+    border-radius:12px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.08);
+    text-align:center;
+}
+
+/* BOTONES EN BLOQUE */
+.admin-panel .admin-btn{
+    display:inline-block;
+    margin:10px 0;
+}
