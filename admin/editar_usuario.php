@@ -135,15 +135,19 @@ if (isset($_POST["actualizar"])) {
 <html>
 <head>
     <title>Editar usuario</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-    <h1>Editar usuario</h1>
+<div class="admin-form-container">
 
+    <h1 class="admin-form-title">
+        Editar usuario
+    </h1>
 
-    <?php echo $mensaje; ?>
-
-
+    <?php if($mensaje != ""): ?>
+        <p class="admin-error"><?php echo $mensaje; ?></p>
+    <?php endif; ?>
 
     <?php if (!$usuario_encontrado &&
               !isset($_POST["actualizar"])): ?>
@@ -152,7 +156,7 @@ if (isset($_POST["actualizar"])) {
         <!-- Buscar usuario -->
 
 
-        <form method="GET">
+        <form method="GET" class="admin-form">
 
             <label>ID del usuario:</label>
 
@@ -160,7 +164,8 @@ if (isset($_POST["actualizar"])) {
                    name="id"
                    required>
 
-            <input type="submit"
+            <input class="admin-btn"
+                   type="submit"
                    value="Buscar">
 
         </form>
@@ -176,7 +181,7 @@ if (isset($_POST["actualizar"])) {
         <!-- Formulario de edición -->
 
 
-        <form method="POST">
+        <form method="POST" class="admin-form">
 
 
             <input type="hidden"
@@ -192,7 +197,6 @@ if (isset($_POST["actualizar"])) {
                    value="<?php echo $nombre; ?>"
                    required>
 
-            <br><br>
 
 
 
@@ -203,7 +207,6 @@ if (isset($_POST["actualizar"])) {
                    value="<?php echo $email; ?>"
                    required>
 
-            <br><br>
 
 
 
@@ -214,7 +217,6 @@ if (isset($_POST["actualizar"])) {
                    value="<?php echo $password; ?>"
                    required>
 
-            <br><br>
 
 
 
@@ -252,11 +254,11 @@ if (isset($_POST["actualizar"])) {
 
             </select>
 
-            <br><br>
 
 
 
-            <input type="submit"
+            <input class="admin-btn"
+                   type="submit"
                    name="actualizar"
                    value="Actualizar usuario">
 
@@ -270,12 +272,12 @@ if (isset($_POST["actualizar"])) {
 
     <br>
 
-    <a href="listar_usuarios.php">
+    <a class="admin-back" href="listar_usuarios.php">
 
         ← Ver listado
 
     </a>
-
+</div>
 </body>
 </html>
 

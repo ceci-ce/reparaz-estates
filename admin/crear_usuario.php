@@ -68,15 +68,20 @@ if(isset($_POST["enviar"])){
 <html>
 <head>
     <title>Crear usuario</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-    <h1>Añadir nuevo usuario</h1>
+<div class="admin-form-container">
+
+    <h1 class="admin-form-title">
+    Añadir usuario
+    </h1>
 
 
     <?php if($insertado): ?>
 
-        <p style="color:green;">
+        <p class="admin-success">
             Usuario insertado correctamente.
         </p>
 
@@ -96,69 +101,40 @@ if(isset($_POST["enviar"])){
     <?php else: ?>
 
 
-        <form method="POST">
+    <form method="POST" class="admin-form">
 
+        <label>Nombre:</label>
+        <input type="text" name="nombre" required>
 
-            <label>Nombre:</label>
+        <label>Email:</label>
+        <input type="email" name="email" required>
 
-            <input type="text"
-                   name="nombre"
-                   required>
+        <label>Password:</label>
+        <input type="text" name="password" required>
 
-            <br><br>
+        <label>Tipo usuario:</label>
+        <select name="tipo_usuario">
+            <option value="cliente">Cliente</option>
+            <option value="admin">Administrador</option>
+        </select>
 
+        <input
+            class="admin-btn"
+            type="submit"
+            name="enviar"
+            value="Guardar usuario">
 
-            <label>Email:</label>
-
-            <input type="email"
-                   name="email"
-                   required>
-
-            <br><br>
-
-
-            <label>Password:</label>
-
-            <input type="text"
-                   name="password"
-                   required>
-
-            <br><br>
-
-
-            <label>Tipo usuario:</label>
-
-            <select name="tipo_usuario">
-
-                <option value="cliente">
-                    Cliente
-                </option>
-
-                <option value="admin">
-                    Administrador
-                </option>
-
-            </select>
-
-            <br><br>
-
-
-            <input type="submit"
-                   name="enviar"
-                   value="Guardar usuario">
-
-
-        </form>
+    </form>
 
     <?php endif; ?>
 
 
-    <br>
 
-    <a href="menu.html">
+    <a class="admin-back" href="menu.html">
         ← Volver al menú
     </a>
 
+</div>    
 </body>
 </html>
 

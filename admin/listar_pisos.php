@@ -21,27 +21,36 @@ $sql = "SELECT * FROM pisos ORDER BY piso_id DESC";
 $consulta = mysqli_query($conexion, $sql);
 
 // Número de filas
+if(!$consulta){
+    die("Error en la consulta: " . mysqli_error($conexion));
+}
+
 $nfilas = mysqli_num_rows($consulta);
 ?>
 
 <html>
 <head>
     <title>Listado de pisos</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-    <h1>Listado de pisos</h1>
+<div class="admin-form-container">
+
+    <h1 class="admin-form-title">
+        Listado de pisos
+    </h1>
 
     <?php if ($nfilas == 0): ?>
 
         <p>No hay pisos en la base de datos.</p>
-        <p><a href="crear_piso.php">Añadir el primer piso</a></p>
+        <p><a class="admin-back" href="crear_piso.php">Añadir el primer piso</a></p>
 
     <?php else: ?>
 
-    <table border="1" cellpadding="5" cellspacing="0">
+    <table class="table">
 
-        <tr bgcolor="#CCCCCC">
+        <tr>
 
             <th>ID</th>
             <th>Título</th>
@@ -82,11 +91,11 @@ $nfilas = mysqli_num_rows($consulta);
 
             if($fila["disponible"] == 1){
 
-                echo "<td>Disponible</td>";
+                echo "<td class='estado-disponible'>Disponible</td>";
 
             }else{
 
-                echo "<td>Vendido</td>";
+                echo "<td class='estado-vendido'>Vendido</td>";
             }
 
             echo "</tr>";
@@ -100,8 +109,9 @@ $nfilas = mysqli_num_rows($consulta);
 
     <br>
 
-    <a href="crear_piso.php">Crear piso</a>
+    <a class="admin-back" href="crear_piso.php">Crear piso</a>
 
+</div>
 </body>
 </html>
 

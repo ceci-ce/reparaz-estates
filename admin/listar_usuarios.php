@@ -30,11 +30,15 @@ $nfilas = mysqli_num_rows($consulta);
 <html>
 <head>
     <title>Listado de usuarios</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-    <h1>Listado de usuarios</h1>
+<div class="admin-form-container">
 
+    <h1 class="admin-form-title">
+        Listado de usuarios
+    </h1>
 
     <?php if ($nfilas == 0): ?>
 
@@ -49,12 +53,10 @@ $nfilas = mysqli_num_rows($consulta);
     <?php else: ?>
 
 
-        <table border="1"
-               cellpadding="5"
-               cellspacing="0">
+        <table class="table">
 
 
-            <tr bgcolor="#CCCCCC">
+            <tr>
 
                 <th>ID</th>
 
@@ -102,12 +104,12 @@ $nfilas = mysqli_num_rows($consulta);
     <br>
 
 
-    <a href="crear_usuario.php">
+    <a class="admin-back" href="crear_usuario.php">
 
         Crear usuario
 
     </a>
-
+</div>
 </body>
 </html>
 

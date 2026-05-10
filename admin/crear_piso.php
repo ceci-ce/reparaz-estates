@@ -74,11 +74,11 @@ if (isset($_POST["enviar"])) {
         if ($resultado) {
             $insertado = true;
         } else {
-            echo "Error: " . mysqli_error($conexion);
+            echo "<p class='admin-error'>Error: " . mysqli_error($conexion) . "</p>";
         }
 
     } else {
-        echo "Todos los campos son obligatorios";
+        echo "<p class='admin-error'>Todos los campos son obligatorios</p>";
     }
 }
 ?>
@@ -86,62 +86,71 @@ if (isset($_POST["enviar"])) {
 <html>
 <head>
     <title>Crear piso</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-<h1>Crear piso</h1>
+<div class="admin-form-container">
+<h1 class="admin-form-title">
+    Crear piso
+</h1>
 
 <?php if ($insertado): ?>
-    <p style="color:green;">Piso insertado correctamente</p>
+    <p class="admin-success">Piso insertado correctamente</p>
     <a href="listar_pisos.php">Ver lista</a>
 <?php else: ?>
 
-<form method="POST">
+<form method="POST" class="admin-form">
 
     <label>Título:</label>
-    <input type="text" name="titulo"><br><br>
+    <input type="text" name="titulo">
 
     <label>Descripción:</label>
-    <textarea name="descripcion"></textarea><br><br>
+    <textarea name="descripcion"></textarea>
 
     <label>Calle:</label>
-    <input type="text" name="calle"><br><br>
+    <input type="text" name="calle">
 
     <label>Número:</label>
-    <input type="number" name="numero"><br><br>
+    <input type="number" name="numero">
 
     <label>Piso:</label>
-    <input type="number" name="piso"><br><br>
+    <input type="number" name="piso">
 
     <label>Puerta:</label>
-    <input type="text" name="puerta"><br><br>
+    <input type="text" name="puerta">
 
     <label>CP:</label>
-    <input type="text" name="cp"><br><br>
+    <input type="text" name="cp">
 
     <label>Zona:</label>
-    <input type="text" name="zona"><br><br>
+    <input type="text" name="zona">
 
     <label>Metros:</label>
-    <input type="number" name="metros"><br><br>
+    <input type="number" name="metros">
 
     <label>Habitaciones:</label>
-    <input type="number" name="habitaciones"><br><br>
+    <input type="number" name="habitaciones">
 
     <label>Baños:</label>
-    <input type="number" name="banos"><br><br>
+    <input type="number" name="banos">
 
     <label>Precio:</label>
-    <input type="text" name="precio"><br><br>
+    <input type="text" name="precio">
 
     <label>Imagen:</label>
-    <input type="text" name="imagen"><br><br>
+    <input type="text" name="imagen">
 
-    <input type="submit" name="enviar" value="Guardar">
+    <input
+        class="admin-btn"
+        type="submit"
+        name="enviar"
+        value="Guardar piso">
 </form>
 
 <?php endif; ?>
 
+</div>
 </body>
 </html>
 

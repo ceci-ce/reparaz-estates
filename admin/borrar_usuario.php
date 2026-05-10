@@ -32,10 +32,7 @@ if (isset($_GET["id"]) &&
     // Protección admin principal
     if ($id == 1) {
 
-        $mensaje =
-            "<p style='color:red;'>
-                No se puede eliminar el administrador principal.
-            </p>";
+        $mensaje = "<p class='admin-error'>No se puede eliminar el administrador principal.</p>";
 
     } else {
 
@@ -63,8 +60,10 @@ if (isset($_GET["id"]) &&
                 <title>Eliminar usuario</title>
             </head>
             <body>
+            <div class="admin-form-container">
 
-                <h1>Eliminar usuario</h1>
+                <h1 class="admin-form-title">Eliminar usuario</h1>
+
 
                 <p>
                     ¿Seguro que quieres eliminar este usuario?
@@ -107,9 +106,7 @@ if (isset($_GET["id"]) &&
                            value="<?php echo $id; ?>">
 
 
-                    <input type="submit"
-                           name="confirmar"
-                           value="Sí, eliminar">
+                    <input class="admin-btn" type="submit" name="confirmar" value="Sí, eliminar">
 
                 </form>
 
@@ -117,12 +114,13 @@ if (isset($_GET["id"]) &&
                 <br>
 
 
-                <a href="listar_usuarios.php">
+                <a class="admin-back" href="listar_usuarios.php">
 
                     ← Volver al listado
 
                 </a>
 
+            </div>
             </body>
             </html>
 
@@ -136,7 +134,7 @@ if (isset($_GET["id"]) &&
         } else {
 
             $mensaje =
-                "<p style='color:red;'>
+                "<p class='admin-error'>
                     No se encontró el usuario.
                 </p>";
         }
@@ -163,7 +161,7 @@ if (isset($_POST["confirmar"])) {
     if ($resultado) {
 
         $mensaje =
-            "<p style='color:green;'>
+            "<p class='admin-success'>
                 Usuario eliminado correctamente.
             </p>";
 
@@ -172,7 +170,7 @@ if (isset($_POST["confirmar"])) {
     } else {
 
         $mensaje =
-            "<p style='color:red;'>
+            "<p class='admin-error'>
                 Error: "
                 . mysqli_error($conexion) .
             "</p>";
@@ -184,10 +182,15 @@ if (isset($_POST["confirmar"])) {
 <html>
 <head>
     <title>Eliminar usuario</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-    <h1>Eliminar usuario</h1>
+<div class="admin-form-container">
+
+    <h1 class="admin-form-title">
+        Eliminar usuario
+    </h1>
 
 
     <?php echo $mensaje; ?>
@@ -196,7 +199,7 @@ if (isset($_POST["confirmar"])) {
     <?php if ($mostrar_busqueda): ?>
 
 
-        <form method="GET">
+        <form method="GET" class="admin-form">
 
             <label>ID del usuario:</label>
 
@@ -205,8 +208,7 @@ if (isset($_POST["confirmar"])) {
                    required>
 
 
-            <input type="submit"
-                   value="Buscar">
+            <input class="admin-btn" type="submit" value="Buscar">
 
 
         </form>
@@ -218,12 +220,12 @@ if (isset($_POST["confirmar"])) {
     <br>
 
 
-    <a href="listar_usuarios.php">
+    <a class="admin-back" href="listar_usuarios.php">
 
         ← Ver listado
 
     </a>
-
+</div>
 </body>
 </html>
 

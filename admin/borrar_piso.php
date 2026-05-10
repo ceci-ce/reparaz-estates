@@ -43,10 +43,15 @@ if (isset($_GET["id"]) && !isset($_POST["confirmar"])) {
         <html>
         <head>
             <title>Eliminar piso</title>
+            <link rel="stylesheet" href="../css/style.css">
         </head>
         <body>
 
-            <h1>Eliminar piso</h1>
+        <div class="admin-form-container">
+
+            <h1 class="admin-form-title">
+                Eliminar piso
+            </h1>
 
             <p>¿Seguro que quieres eliminar este piso?</p>
 
@@ -71,9 +76,7 @@ if (isset($_GET["id"]) && !isset($_POST["confirmar"])) {
                        name="id"
                        value="<?php echo $id; ?>">
 
-                <input type="submit"
-                       name="confirmar"
-                       value="✅ Sí, eliminar">
+                <input class="admin-btn" type="submit" name="confirmar" value="Sí, eliminar">
 
             </form>
 
@@ -83,6 +86,7 @@ if (isset($_GET["id"]) && !isset($_POST["confirmar"])) {
                 ← Volver al listado
             </a>
 
+        </div>    
         </body>
         </html>
 
@@ -95,7 +99,7 @@ if (isset($_GET["id"]) && !isset($_POST["confirmar"])) {
     } else {
 
         $mensaje =
-            "<p style='color:red;'>No se encontró el piso con ID: $id</p>";
+            "<p class='admin-error'>No se encontró el piso con ID: $id</p>";
     }
 }
 
@@ -117,7 +121,7 @@ if (isset($_POST["confirmar"])) {
     if (mysqli_num_rows($consulta_compras) > 0) {
 
         $mensaje =
-            "<p style='color:red;'>
+            "<p class='admin-error'>
                 No se puede eliminar este piso porque tiene compras registradas.
             </p>";
 
@@ -134,7 +138,7 @@ if (isset($_POST["confirmar"])) {
         if ($resultado) {
 
             $mensaje =
-                "<p style='color:green;'>
+                "<p class='admin-success'>
                     Piso eliminado correctamente.
                 </p>";
 
@@ -143,7 +147,7 @@ if (isset($_POST["confirmar"])) {
         } else {
 
             $mensaje =
-                "<p style='color:red;'>
+                "<p class='admin-error'>
                     Error: "
                     . mysqli_error($conexion)
                     . "
@@ -156,23 +160,28 @@ if (isset($_POST["confirmar"])) {
 <html>
 <head>
     <title>Eliminar piso</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-    <h1>Eliminar piso</h1>
+<div class="admin-form-container">
+
+    <h1 class="admin-form-title">
+        Eliminar piso
+    </h1>
 
     <?php echo $mensaje; ?>
 
 
     <?php if ($mostrar_busqueda): ?>
 
-        <form method="GET">
+        <form method="GET"class="admin-form">
 
             <label>ID del piso:</label>
 
             <input type="number" name="id" required>
 
-            <input type="submit" value="Buscar">
+            <input class="admin-btn" type="submit" value="Buscar">
 
         </form>
 
@@ -181,7 +190,7 @@ if (isset($_POST["confirmar"])) {
 
     <br>
 
-    <a href="listar_pisos.php">
+    <a class="admin-back" href="listar_pisos.php">
         ← Ver listado
     </a>
 

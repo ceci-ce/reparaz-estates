@@ -93,22 +93,28 @@ if (isset($_POST["actualizar"])) {
 <html>
 <head>
     <title>Editar piso</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-    <h1>Editar piso</h1>
+<div class="admin-form-container">
 
-    <?php echo $mensaje; ?>
+    <h1 class="admin-form-title">
+        Editar piso
+    </h1>
+
+    <?php if($mensaje != ""): ?>
+        <p class="admin-error"><?php echo $mensaje; ?></p>
+    <?php endif; ?>
 
     <?php if (!$piso_encontrado && !isset($_POST["actualizar"])): ?>
 
-        <form method="GET">
+        <form method="GET" class="admin-form">
 
             <label>ID del piso:</label>
-
             <input type="number" name="id" required>
 
-            <input type="submit" value="Buscar">
+            <input class="admin-btn" type="submit" value="Buscar">
 
         </form>
 
@@ -117,31 +123,33 @@ if (isset($_POST["actualizar"])) {
 
     <?php if ($piso_encontrado): ?>
 
-        <form method="POST">
+        <form method="POST" class="admin-form">
 
             <input type="hidden" name="id" value="<?php echo $id; ?>">
 
             <label>Título:</label>
             <input type="text" name="titulo"
-                   value="<?php echo $titulo; ?>" required><br><br>
+                   value="<?php echo $titulo; ?>" required>
 
             <label>Calle:</label>
             <input type="text" name="calle"
-                   value="<?php echo $calle; ?>" required><br><br>
+                   value="<?php echo $calle; ?>" required>
 
             <label>Número:</label>
             <input type="number" name="numero"
-                   value="<?php echo $numero; ?>" required><br><br>
+                   value="<?php echo $numero; ?>" required>
 
             <label>Metros:</label>
             <input type="number" name="metros"
-                   value="<?php echo $metros; ?>" required><br><br>
+                   value="<?php echo $metros; ?>" required>
 
             <label>Precio:</label>
             <input type="text" name="precio"
-                   value="<?php echo $precio; ?>" required><br><br>
+                   value="<?php echo $precio; ?>" required>
 
-            <input type="submit"
+            <input 
+                   class="admin-btn"
+                   type="submit"
                    name="actualizar"
                    value="Actualizar piso">
 
@@ -151,8 +159,9 @@ if (isset($_POST["actualizar"])) {
 
     <br>
 
-    <a href="listar_pisos.php">Ver listado</a>
+    <a class="admin-back" href="listar_pisos.php">
 
+</div>    
 </body>
 </html>
 
