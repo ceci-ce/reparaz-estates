@@ -7,54 +7,145 @@ $consulta = mysqli_query($conexion, $sql);
 ?>
 
 <html>
+
 <head>
+
     <title>Reparaz Estates</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 
 <body>
 
-    <h1>Reparaz Estates</h1>
 
-    <p>Encuentra tu hogar ideal</p>
+<header>
 
-    <hr>
+    <div class="container">
 
-    <h2>Últimos pisos</h2>
+        <div class="logo">
 
-    <?php
-    while($fila = mysqli_fetch_assoc($consulta)){
-    ?>
-
-        <div style="border:1px solid #ccc; padding:10px; margin:10px;">
-
-            <h3>
-                <?php echo $fila["calle"]; ?>
-                <?php echo $fila["numero"]; ?>
-            </h3>
-
-            <p>
-                <?php echo $fila["metros"]; ?> m²
-            </p>
-
-            <p>
-                <?php echo $fila["precio"]; ?> €
-            </p>
-
-            <a href="detalle_piso.php?id=<?php echo $fila["piso_id"]; ?>">
-                Ver detalles
-            </a>
+            REPARAZ ESTATES
 
         </div>
 
-    <?php
-    }
-    ?>
+    </div>
 
-    <hr>
+</header>
 
-    <a href="auth/login.php">Admin</a>
+
+
+<section class="hero">
+
+    <h1>Encuentra tu hogar ideal</h1>
+
+    <p>Propiedades exclusivas seleccionadas para ti</p>
+
+</section>
+
+
+
+<div class="container">
+
+
+    <h2>Últimos pisos</h2>
+
+
+    <div class="grid">
+
+
+        <?php
+
+        while($fila = mysqli_fetch_assoc($consulta)){
+
+        ?>
+
+
+        <div class="card">
+
+
+            <div class="card-body">
+
+
+                <h3>
+
+                    <?php echo $fila["calle"]; ?>
+
+                    <?php echo $fila["numero"]; ?>
+
+                </h3>
+
+
+                <p>
+
+                    <?php echo $fila["metros"]; ?> m²
+
+                </p>
+
+
+                <div class="precio">
+
+                    <?php echo $fila["precio"]; ?> €
+
+                </div>
+
+
+                <a class="btn"
+
+                   href="detalle_piso.php?id=<?php echo $fila["piso_id"]; ?>">
+
+                    Ver detalles
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+        <?php } ?>
+
+
+    </div>
+
+
+    <br><br>
+
+
+    <a class="btn" href="pisos.php">
+
+        Ver todos los pisos
+
+    </a>
+
+
+    <br><br>
+
+
+    <a href="auth/login.php">
+
+        Admin
+
+    </a>
+
+
+</div>
+
+
+
+<footer>
+
+    © 2026 Reparaz Estates
+
+</footer>
+
 
 </body>
+
 </html>
+
 
 <?php mysqli_close($conexion); ?>

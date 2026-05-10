@@ -60,6 +60,7 @@ $resultado = mysqli_query($conexion, $sql_insert);
 <html>
 <head>
     <title>Compra realizada</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>

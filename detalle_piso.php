@@ -62,61 +62,95 @@ if (!$fila) {
 
 
 <html>
+
 <head>
+
     <title>Detalle del piso</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 
 <body>
 
-    <h1>Detalle del piso</h1>
 
-    <hr>
+<header>
 
+    <div class="container">
 
-    <h2>
-        <?php echo $fila["calle"]; ?>
-        <?php echo $fila["numero"]; ?>
-    </h2>
+        <div class="logo">REPARAZ ESTATES</div>
 
+    </div>
 
-    <p>
-        <strong>Metros:</strong>
-        <?php echo $fila["metros"]; ?> m²
-    </p>
+</header>
 
 
-    <p>
-        <strong>Precio:</strong>
-        <?php echo $fila["precio"]; ?> €
-    </p>
 
-    <br><br>
-
-    <a href="comprar.php?id=<?php echo $fila["piso_id"]; ?>">
-         Comprar piso
-    </a>
+<div class="container">
 
 
-    <p>
-        <strong>CP:</strong>
-        <?php echo $fila["cp"]; ?>
-    </p>
+    <div class="detalle">
 
 
-    <p>
-        <strong>Zona:</strong>
-        <?php echo $fila["zona"]; ?>
-    </p>
+        <h1>
+
+            <?php echo $fila["calle"]; ?>
+
+            <?php echo $fila["numero"]; ?>
+
+        </h1>
 
 
-    <hr>
+        <div class="precio">
+
+            <?php echo $fila["precio"]; ?> €
+
+        </div>
 
 
-    <a href="index.php">
-        ← Volver al listado
-    </a>
+        <p><strong>Metros:</strong> <?php echo $fila["metros"]; ?> m²</p>
+
+        <p><strong>CP:</strong> <?php echo $fila["cp"]; ?></p>
+
+        <p><strong>Zona:</strong> <?php echo $fila["zona"]; ?></p>
+
+
+        <br>
+
+
+        <a class="btn"
+
+           href="comprar.php?id=<?php echo $fila["piso_id"]; ?>">
+
+            Comprar piso
+
+        </a>
+
+
+        <br><br>
+
+
+        <a href="index.php">← Volver</a>
+
+
+    </div>
+
+
+</div>
+
+
+
+<footer>
+
+    © 2026 Reparaz Estates
+
+</footer>
+
 
 </body>
+
 </html>
+
 
 <?php mysqli_close($conexion); ?>
