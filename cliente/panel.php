@@ -63,6 +63,7 @@ $consulta = mysqli_query($conexion, $sql);
         <table>
 
             <tr>
+                <th>Imagen</th>
                 <th>Título</th>
                 <th>Zona</th>
                 <th>Metros</th>
@@ -75,6 +76,13 @@ $consulta = mysqli_query($conexion, $sql);
         <tr>
 
             <td><?php echo $fila["titulo"]; ?></td>
+            
+            <td>
+                <img class="table-img"
+                    src="../img/<?php echo $fila["imagen"]; ?>"
+                    width="80"
+                    alt="piso">
+            </td>
 
             <td><?php echo $fila["zona"]; ?></td>
 

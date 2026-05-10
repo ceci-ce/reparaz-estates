@@ -37,19 +37,19 @@ if(!isset($_SESSION["user_id"])){
 
     <br>
 
-    <a class="admin-btn" href="../admin/listar_pisos.php">
+    <a class="admin-btn" href="listar_pisos.php">
         Gestionar pisos
     </a>
 
     <br><br>
 
-    <a class="admin-btn" href="../admin/listar_usuarios.php">
+    <a class="admin-btn" href="listar_usuarios.php">
         Gestionar usuarios
     </a>
 
     <br><br>
 
-    <a class="admin-back" href="logout.php">
+    <a class="admin-back" href="../auth/logout.php">
         Cerrar sesión
     </a>
 

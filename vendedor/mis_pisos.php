@@ -67,7 +67,7 @@ $consulta = mysqli_query($conexion, $sql);
 
     <br>
 
-    <a class="admin-back" href="../auth/panel.php">Volver</a>
+    <a class="admin-back" href="../admin/panel.php">Volver</a>
 
 </div>
 

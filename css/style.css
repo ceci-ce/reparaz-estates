@@ -275,13 +275,29 @@ table{
 th{
     background:#111;
     color:white;
-    padding:15px;
+    padding:18px 14px;
     text-align:left;
+    font-size:15px;
+    white-space:nowrap;
 }
 
 td{
-    padding:15px;
+    padding:18px 14px;
     border-bottom:1px solid #eee;
+    font-size:15px;
+    vertical-align: middle;
+}
+
+tr:hover{
+    background:#f8f8f8;
+}
+
+/* IMÁGENES TABLA */
+.table img{
+    width:60px;
+    height:60px;
+    object-fit:cover;
+    border-radius:6px;
 }
 
 tr:hover{
