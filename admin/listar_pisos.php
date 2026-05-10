@@ -39,38 +39,62 @@ $nfilas = mysqli_num_rows($consulta);
 
     <?php else: ?>
 
-        <table border="1" cellpadding="5" cellspacing="0">
+    <table border="1" cellpadding="5" cellspacing="0">
 
-            <tr bgcolor="#CCCCCC">
-                <th>ID</th>
-                <th>Título</th>
-                <th>Calle</th>
-                <th>Número</th>
-                <th>Metros</th>
-                <th>Precio (€)</th>
-            </tr>
+        <tr bgcolor="#CCCCCC">
 
-            <?php
+            <th>ID</th>
+            <th>Título</th>
+            <th>Zona</th>
+            <th>Hab.</th>
+            <th>Baños</th>
+            <th>Metros</th>
+            <th>Precio (€)</th>
+            <th>Estado</th>
 
-            for($i = 0; $i < $nfilas; $i++){
+        </tr>
 
-                $fila = mysqli_fetch_assoc($consulta);
 
-                echo "<tr>";
+        <?php
 
-                echo "<td>".$fila["piso_id"]."</td>";
-                echo "<td>".$fila["titulo"]."</td>";
-                echo "<td>".$fila["calle"]."</td>";
-                echo "<td>".$fila["numero"]."</td>";
-                echo "<td>".$fila["metros"]."</td>";
-                echo "<td>".number_format($fila["precio"], 2)." €</td>";
+        for ($i = 0; $i < $nfilas; $i++) {
 
-                echo "</tr>";
+            $fila = mysqli_fetch_assoc($consulta);
+
+            echo "<tr>";
+
+            echo "<td>" . $fila["piso_id"] . "</td>";
+
+            echo "<td>" . $fila["titulo"] . "</td>";
+
+            echo "<td>" . $fila["zona"] . "</td>";
+
+            echo "<td>" . $fila["habitaciones"] . "</td>";
+
+            echo "<td>" . $fila["banos"] . "</td>";
+
+            echo "<td>" . $fila["metros"] . " m²</td>";
+
+            echo "<td>" .
+                number_format($fila["precio"], 2)
+                . " €</td>";
+
+
+            if($fila["disponible"] == 1){
+
+                echo "<td>Disponible</td>";
+
+            }else{
+
+                echo "<td>Vendido</td>";
             }
 
-            ?>
+            echo "</tr>";
+        }
 
-        </table>
+        ?>
+
+    </table>
 
     <?php endif; ?>
 
