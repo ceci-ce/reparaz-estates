@@ -240,6 +240,8 @@ footer{
     cursor:pointer;
     font-size:16px;
     transition:0.3s;
+    display: inline-block;
+    margin-bottom: 20px;
 }
 
 .admin-btn:hover{
